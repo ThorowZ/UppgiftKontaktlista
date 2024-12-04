@@ -8,5 +8,7 @@ namespace UppgiftKontaktlista.Services
 {
     internal class MenuDialog
     {
+       
+
     }
 }

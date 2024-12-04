@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using UppgiftKontaktlista.Models;
 
 namespace UppgiftKontaktlista.Services
 {
     public class ContactService
     {
-        private List<ContactService> _contactService = [];
 
-        public void Add(ContactService contactService)
+        private readonly List<ContactFormat> _contacts = new(); 
+
+   
+        public void Add(ContactFormat contact)
         {
-            _contactService.Add(contactService);
+            _contacts.Add(contact);
         }
 
-        public IEnumerable<ContactService> GetAll() 
+   
+        public IEnumerable<ContactFormat> GetAll()
         {
-        return _contactService;
+            return _contacts;
         }
-
     }
 }

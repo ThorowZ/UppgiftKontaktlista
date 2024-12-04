@@ -14,7 +14,7 @@ namespace UppgiftKontaktlista.Models
         {
             Console.Clear();
 
-            var contact = new ContactFormat();
+            ContactFormat contact = new ContactFormat();
 
             Console.WriteLine("Enter first name: ");
             contact.Firstname = Console.ReadLine()!;
@@ -29,19 +29,29 @@ namespace UppgiftKontaktlista.Models
             //Console.WriteLine("Enter phonenumber: ");
             //contact.Phone = Console.ReadLine();
 
-            _contactService.Equals(contact);
+            _contactService.Add(contact);
 
         }
 
-        public void ViewAllKontakts()
+        public void ViewAllContacts()
         {
             Console.Clear();
 
-            
-            //foreach (var contact in contacts)
-            //{
+            var contacts = _contactService.GetAll();
 
-            //}
+            if(contacts.Count() == 0)
+            {
+                Console.WriteLine("No contacts found.");
+            }
+
+            Console.WriteLine("All Contacts: ");
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine($"Name: {contact.Firstname} {contact.Lastname}");
+                Console.WriteLine($"Email: {contact.Email}");
+                Console.WriteLine(new string('-', 20));
+
+            }
         }
 
     }
