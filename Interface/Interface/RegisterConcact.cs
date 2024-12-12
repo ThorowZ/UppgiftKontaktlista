@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Business.Models;
+using Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UppgiftKontaktlista.Services;
+
 
 namespace UppgiftKontaktlista.Models
 {
@@ -26,8 +28,21 @@ namespace UppgiftKontaktlista.Models
             contact.Email = Console.ReadLine()!;
 
 
-            //Console.WriteLine("Enter phonenumber: ");
-            //contact.Phone = Console.ReadLine();
+            while (true) 
+            { 
+                Console.WriteLine("Please enter your phone number");
+                string Phoneinput = Console.ReadLine()!;
+
+                if (int.TryParse(Phoneinput, out int phone))
+                {
+                    contact.Phone = phone;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a vaild phone numnber");
+                }
+            }
 
             _contactService.Add(contact);
 
@@ -49,6 +64,7 @@ namespace UppgiftKontaktlista.Models
             {
                 Console.WriteLine($"Name: {contact.Firstname} {contact.Lastname}");
                 Console.WriteLine($"Email: {contact.Email}");
+                Console.WriteLine($"Phone: {contact.Phone}");
                 Console.WriteLine(new string('-', 20));
 
             }

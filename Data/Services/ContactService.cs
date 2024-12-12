@@ -1,25 +1,30 @@
-﻿using System;
+﻿using Business.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.Generic;
-using UppgiftKontaktlista.Models;
 
-namespace UppgiftKontaktlista.Services
+namespace Data.Services
 {
     public class ContactService
     {
 
-        private readonly List<ContactFormat> _contacts = new(); 
+        private List<ContactFormat> _contacts = [];
+        private readonly FileService _fileService = new(fileName: "Contact.json"); 
 
-   
+
         public void Add(ContactFormat contact)
         {
             _contacts.Add(contact);
+            _fileService.SaveList(_contacts);
         }
 
-   
+
         public IEnumerable<ContactFormat> GetAll()
         {
+            _contacts = _fileService.LoadList<ContactFormat>();
             return _contacts;
         }
+
+        
     }
 }

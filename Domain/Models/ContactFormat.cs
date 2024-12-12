@@ -1,4 +1,4 @@
-﻿namespace UppgiftKontaktlista.Models
+﻿namespace Business.Models
 {
     public class ContactFormat
     {
