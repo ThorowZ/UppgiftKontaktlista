@@ -4,17 +4,25 @@ using Data.Services;
 
 namespace UppgiftKontaktlista.Test.Factories
 {
-    internal class RegisterContact_Tests;
+    public class RegisterContact_Tests
+    {
 
     [Fact]
-    public void Create_ShouldReturnRegisterContact()
+    public void Register_ShouldReturnRegisterContact()
     {
-        //Arrange
+            //Arrange - Förberedelse
+            var contactService = new ContactService();
+            var contactFormat = new ContactFormat() 
+            {
+                Firstname = "firstname",
+                Lastname = "lastname" 
+            };
 
-        // Act
-        ContactFormat result = ContactService.Create();
+        // Act - Själva utförandet
+        ContactFormat result = ContactService.Add();
 
-        // Assert
+        // Assert - test delen
         Assert.IsType<ContactFormat>(result);
+        }
     }
 }
