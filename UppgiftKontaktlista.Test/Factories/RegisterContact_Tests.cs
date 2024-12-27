@@ -18,11 +18,13 @@ namespace UppgiftKontaktlista.Test.Factories
                 Lastname = "lastname" 
             };
 
-        // Act - Själva utförandet
-        ContactFormat result = ContactService.Add();
+            // Act - Själva utförandet
+            ContactFormat result = contactService.Add(contactFormat);
 
-        // Assert - test delen
-        Assert.IsType<ContactFormat>(result);
+            // Assert - test delen
+            Assert.IsType<ContactFormat>(result);
+            Assert.Equal(contactFormat.Firstname, result.Firstname);
+            Assert.Equal(contactFormat.Lastname, result.Lastname);
         }
     }
 }

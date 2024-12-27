@@ -12,10 +12,12 @@ namespace Data.Services
         private readonly FileService _fileService = new(fileName: "Contact.json"); 
 
 
-        public void Add(ContactFormat contact)
+        public ContactFormat Add(ContactFormat contact)
         {
             _contacts.Add(contact);
             _fileService.SaveList(_contacts);
+
+            return contact;
         }
 
 
