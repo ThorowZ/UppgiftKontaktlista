@@ -15,7 +15,9 @@ namespace UppgiftKontaktlista.Test.Factories
             var contactFormat = new ContactFormat() 
             {
                 Firstname = "firstname",
-                Lastname = "lastname" 
+                Lastname = "lastname",
+                Email = "email",
+                Phone = "phoneNumber"
             };
 
             // Act - Själva utförandet
@@ -25,6 +27,8 @@ namespace UppgiftKontaktlista.Test.Factories
             Assert.IsType<ContactFormat>(result);
             Assert.Equal(contactFormat.Firstname, result.Firstname);
             Assert.Equal(contactFormat.Lastname, result.Lastname);
+            Assert.Equal(contactFormat.Email, result.Email);
+            Assert.Equal(contactFormat.Phone, result.Phone);  
         }
     }
 }

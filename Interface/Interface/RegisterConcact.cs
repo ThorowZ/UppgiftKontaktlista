@@ -33,9 +33,9 @@ namespace UppgiftKontaktlista.Models
                 Console.WriteLine("Please enter your phone number");
                 string Phoneinput = Console.ReadLine()!;
 
-                if (int.TryParse(Phoneinput, out int phone))
+                if (Phoneinput.All(char.IsDigit))
                 {
-                    contact.Phone = phone;
+                    contact.Phone = Phoneinput;
                     break;
                 }
                 else

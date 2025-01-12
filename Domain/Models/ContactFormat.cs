@@ -10,7 +10,7 @@
 
         public string Email { get; set; } = null!;
 
-        public int Phone { get; set; }
+        public string Phone { get; set; } = null!;
     }
 
     public class ContactEntity
